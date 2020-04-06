@@ -23,6 +23,9 @@ Resources:
           Properties:
             Path: /GetSecurityGroups
             Method: get
+      Policies:
+      # Give DynamoDB Full Access to your Lambda Function
+      - AmazonEC2ReadOnlyAccess
 
 Outputs:
 

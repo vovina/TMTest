@@ -21,6 +21,8 @@ Resources:
           Properties:
             Path: /GetSecurityGroups
             Method: get
+      Policies:
+      - AmazonEC2ReadOnlyAccess
 Outputs:
   TrendMicroTestApi:
     Description: API Gateway endpoint URL for Prod stage for Trend Micro Test function
