@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk')
 const ec2 = new AWS.EC2();
-exports.lambdaHandler = async ()=> {
+exports.Handler = async ()=> {
 // let securityGroupsDesc = ec2.describeSecurityGroups()
 
 // return JSON.stringify(securityGroupsDesc)

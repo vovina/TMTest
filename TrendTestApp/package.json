@@ -1,14 +1,13 @@
 {
-  "name": "hello_world",
+  "name": "trend_micro_test",
   "version": "1.0.0",
-  "description": "hello world sample for NodeJS",
+  "description": "Trend Micro Test",
   "main": "app.js",
-  "repository": "https://github.com/awslabs/aws-sam-cli/tree/develop/samcli/local/init/templates/cookiecutter-aws-sam-hello-nodejs",
+  "repository": "",
   "author": "SAM CLI",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk-mock": "^5.1.0",
-  },
+    "aws-sdk-mock": "^5.1.0"},
   "scripts": {
     "test": "mocha TrendTestApp/tests/unit/"
   },
