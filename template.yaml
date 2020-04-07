@@ -1,18 +1,33 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: >
-  trend-micro-test-sam
+Description: Sample SAM Template for trend-micro-test-sam
 
-  Sample SAM Template for trend-micro-test-sam
-  
-# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
     Timeout: 3
 
 Resources:
+
+  TrendMicroAPI:
+        Type: AWS::Serverless::Api
+        Properties:
+          StageName: Prod
+          Auth:
+            DefaultAuthorizer: MyLambdaTokenAuthorizer
+            Authorizers:
+              MyLambdaTokenAuthorizer:
+                FunctionArn: !GetAtt AuthFunction.Arn
+                
+
+  AuthFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: Authorizer/
+      Handler: authorizer.handler
+      Runtime: nodejs12.x
+
   TrendMicroTestFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Type: AWS::Serverless::Function 
     Properties:
       CodeUri: TrendTestApp/
       Handler: app.Handler
@@ -21,20 +36,23 @@ Resources:
         TrendMicroTest:
           Type: Api 
           Properties:
+            RestApiId: !Ref TrendMicroAPI
             Path: /GetSecurityGroups
             Method: get
+            
       Policies:
-      # Give DynamoDB Full Access to your Lambda Function
+      # Give EC2ReadOnlyAccess to Lambda Function
       - AmazonEC2ReadOnlyAccess
+    
+    Outputs:
 
-Outputs:
-
-  TrendMicroTestApi:
-    Description: "API Gateway endpoint URL for Prod stage for Trend Micro Test function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/GetSecurityGroups/"
-  TrendMicroTestFunction:
-    Description: "Trend Micro Test Lambda Function ARN"
-    Value: !GetAtt TrendMicroTestFunction.Arn
-  TrendMicroTestFunctionIamRole:
-    Description: "Implicit IAM Role created for Trend Micro Test function"
-    Value: !GetAtt TrendMicroTestFunctionRole.Arn
+      TrendMicroTestApi:
+        Description: "API Gateway endpoint URL for Prod stage for Trend Micro Test function"
+        Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/GetSecurityGroups/"
+      TrendMicroTestFunction:
+        Description: "Trend Micro Test Lambda Function ARN"
+        Value: !GetAtt TrendMicroTestFunction.Arn
+      TrendMicroTestFunctionIamRole:
+        Description: "Implicit IAM Role created for Trend Micro Test function"
+        Value: !GetAtt TrendMicroTestFunctionRole.Arn      
+    
