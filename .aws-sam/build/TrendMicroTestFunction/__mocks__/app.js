@@ -1,8 +1,8 @@
-const { fetchData } = require("./aws");
+const AWSMock = require("aws-sdk-mock");
 
-const handler = async () => {
-  const { SecurityGroups } = fetchData();
-  SecurityGroupList = SecurityGroups.map(
+const Handler = async () => {
+  const data = AWSMock.mock("EC2", "describeSecurityGroups", "myresponse");
+  SecurityGroupList = data.SecurityGroups.map(
     (SecurityGroup) => SecurityGroup.GroupName
   );
   const response = {
@@ -16,4 +16,4 @@ const handler = async () => {
   return response;
 };
 
-exports.handler = handler;
+export default Handler;

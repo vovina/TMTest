@@ -39,21 +39,16 @@ Resources:
             Method: get
       Policies:
       - AmazonEC2ReadOnlyAccess
-    Outputs:
-      TrendMicroTestApi:
-        Description: API Gateway endpoint URL for Prod stage for Trend Micro Test
-          function
-        Value:
-          Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/GetSecurityGroups/
-      TrendMicroTestFunction:
-        Description: Trend Micro Test Lambda Function ARN
-        Value:
-          Fn::GetAtt:
-          - TrendMicroTestFunction
-          - Arn
-      TrendMicroTestFunctionIamRole:
-        Description: Implicit IAM Role created for Trend Micro Test function
-        Value:
-          Fn::GetAtt:
-          - TrendMicroTestFunctionRole
-          - Arn
+Outputs:
+  TrendMicroTestFunction:
+    Description: Trend Micro Test Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - TrendMicroTestFunction
+      - Arn
+  TrendMicroTestFunctionIamRole:
+    Description: Implicit IAM Role created for Trend Micro Test function
+    Value:
+      Fn::GetAtt:
+      - TrendMicroTestFunctionRole
+      - Arn

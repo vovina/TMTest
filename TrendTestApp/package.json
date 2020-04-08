@@ -7,12 +7,11 @@
   "author": "SAM CLI",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk-mock": "^5.1.0"},
-  "scripts": {
-    "test": "mocha TrendTestApp/tests/unit/"
+    "aws-sdk-mock": "^5.1.0",
+    "jest": "^25.2.7"
   },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4"
-  }
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {}
 }

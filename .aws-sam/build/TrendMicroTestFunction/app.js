@@ -1,19 +1,19 @@
-const AWS = require('aws-sdk')
-const ec2 = new AWS.EC2();
-exports.Handler = async ()=> {
-// let securityGroupsDesc = ec2.describeSecurityGroups()
+import { fetchData } from "./aws";
 
-// return JSON.stringify(securityGroupsDesc)
-  const data =await ec2.describeSecurityGroups().promise();
-  SecurityGroupList = data.SecurityGroups.map((SecurityGroup) => SecurityGroup.GroupName)
-       const response = {
-        statusCode: 200,
-        headers: {
-            "x-custom-header" : "my custom header value"
-        },
-        body:JSON.stringify(SecurityGroupList)
-    };
+const Handler = async () => {
+  const data = fetchData;
+  SecurityGroupList = data.SecurityGroups.map(
+    (SecurityGroup) => SecurityGroup.GroupName
+  );
+  const response = {
+    statusCode: 200,
+    headers: {
+      "x-custom-header": "my custom header value",
+    },
+    body: JSON.stringify(SecurityGroupList),
+  };
 
+  return response;
+};
 
-    return response;
-}
+export default Handler;
