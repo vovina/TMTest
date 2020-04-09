@@ -2,16 +2,16 @@
   "name": "trend_micro_test",
   "version": "1.0.0",
   "description": "Trend Micro Test",
-  "main": "app.js",
+  "main": "index.js",
   "repository": "",
   "author": "SAM CLI",
   "license": "MIT",
-  "dependencies": {
+  "dependencies": {},
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
     "aws-sdk-mock": "^5.1.0",
     "jest": "^25.2.7"
-  },
-  "scripts": {
-    "test": "jest"
-  },
-  "devDependencies": {}
+  }
 }

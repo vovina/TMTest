@@ -20,15 +20,15 @@ Resources:
   AuthFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: Authorizer/
-      Handler: authorizer.handler
+      CodeUri: SecurityGroups/
+      Handler: index.handler
       Runtime: nodejs12.x
 
   TrendMicroTestFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: TrendTestApp/
-      Handler: app.Handler
+      CodeUri: Authorizer/
+      Handler: index.handler
       Runtime: nodejs12.x
       Events:
         TrendMicroTest:

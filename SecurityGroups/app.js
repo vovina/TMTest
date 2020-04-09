@@ -1,6 +1,6 @@
 const { fetchData } = require("./aws");
 
-const handler = async () => {
+module.exports.handler = async (_event, _context, _callback) => {
   const { SecurityGroups } = fetchData();
   SecurityGroupList = SecurityGroups.map(
     (SecurityGroup) => SecurityGroup.GroupName
@@ -15,5 +15,3 @@ const handler = async () => {
 
   return response;
 };
-
-exports.handler = handler;
