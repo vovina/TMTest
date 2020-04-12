@@ -1,11 +1,9 @@
 const { generateAuthResponse } = require("../authorizer");
-const generatePolicyDocument = require("../policy");
+const { generatePolicyDocument } = require("../policy");
 
-jest.mock("../policy", () => jest.fn());
-describe("generateAuthResponse()", () => {
-  test("reducing image", async () => {
-    const methodArn = "methodArn";
-    generatePolicyDocument.mockImplementation(() => ({
+jest.mock("../policy", () => {
+  return {
+    generatePolicyDocument: jest.fn(() => ({
       Statement: [
         {
           Action: "execute-api:Invoke",
@@ -15,7 +13,13 @@ describe("generateAuthResponse()", () => {
           Resource: "methodArn",
         },
       ],
-    }));
+    })),
+  };
+});
+
+describe("generateAuthResponse()", () => {
+  test("reducing image", async () => {
+    const methodArn = "methodArn";
 
     const result = generateAuthResponse("user", "Allow", methodArn);
     expect(result.principalId).toBe("user");

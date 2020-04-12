@@ -1,4 +1,4 @@
-const generatePolicyDocument = require("./policy");
+const { generatePolicyDocument } = require("./policy");
 
 exports.generateAuthResponse = (principalId, effect, methodArn) => {
   const context = {

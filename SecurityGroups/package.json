@@ -6,9 +6,12 @@
   "repository": "",
   "author": "SAM CLI",
   "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
   "dependencies": {},
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "devDependencies": {
     "aws-sdk-mock": "^5.1.0",
