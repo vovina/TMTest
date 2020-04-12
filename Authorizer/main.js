@@ -5,9 +5,9 @@ exports.AuthorizerService = async (event, Authorizer) => {
 
     switch (token) {
       case "allow":
-        return Authorizer.generateAuthResponse("user", "Allow", methodArn);
+        return await Authorizer.generateAuthResponse("user", "Allow", methodArn);
       case "deny":
-        return Authorizer.generateAuthResponse("user", "Deny", methodArn);
+        return await Authorizer.generateAuthResponse("user", "Deny", methodArn);
       default:
         return Promise.reject("Error: Invalid token"); // Returns 500 Internal Server Error
     }

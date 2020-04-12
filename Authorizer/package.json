@@ -6,11 +6,14 @@
   "repository": "",
   "author": "SAM CLI",
   "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
   "dependencies": {
     "@hapi/joi": "^17.1.0"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --watch --coverage"
   },
   "devDependencies": {
     "jest": "^25.2.7"

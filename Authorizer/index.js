@@ -1,6 +1,6 @@
 // index.js
 const EventParser = require("./adapters/eventparser");
-const Authorizer = require("../../trendmicro-test/Authorizer/authorizer");
+const Authorizer = require("./authorizer");
 const { AuthorizerService } = require("./main");
 
 exports.handler = (event) =>
