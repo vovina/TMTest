@@ -3,6 +3,13 @@ jest.mock("../adapters/connection-service");
 const { SecurityGroupService } = require("../main");
 const { ConnectionService } = require("../adapters/connection-service");
 
+
+// const Event = {
+//   "type": "TOKEN",
+//   "methodArn": "arn:aws:execute-api:ap-southeast-2:882849831643:lyladuewvb/ESTestInvoke-stage/GET/",
+//   "authorizationToken": "allow"
+// }
+
 describe("Integration", () => {
   // it("verifies successful response", async () => {
   // let response = JSON.parse(result.body);

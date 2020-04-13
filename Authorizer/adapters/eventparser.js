@@ -3,6 +3,7 @@ const Joi = require("@hapi/joi");
 const eventSchema = Joi.object({
   authorizationToken: Joi.string().required(),
   methodArn: Joi.string().required(),
+  type: Joi.string().required()
 });
 
 exports.parse = (eventObject) => {
