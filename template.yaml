@@ -43,9 +43,9 @@ Resources:
         - AmazonEC2ReadOnlyAccess
 
 Outputs:
-  # TrendMicroTestApi:
-  #   Description: "API Gateway endpoint URL for Prod stage for Trend Micro Test function"
-  #   Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/GetSecurityGroups/"
+  TrendMicroTestApi:
+    Description: "API Gateway endpoint URL for Prod stage for Trend Micro Test function"
+    Value: !Sub "https://${TrendMicroAPI}.execute-api.${AWS::Region}.amazonaws.com/Prod/GetSecurityGroups/"
   TrendMicroTestFunction:
     Description: "Trend Micro Test Lambda Function ARN"
     Value: !GetAtt TrendMicroTestFunction.Arn
