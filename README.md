@@ -39,6 +39,18 @@ The response will be similar to this:
 >     "default" 
 >     ]
 
+**End To End Testing:**
+
+The end to end testing has been implemented using Newman.
+Newman can be installd using the bellow command:
+
+    npm install -g newman
+
+After running the previous sam deploy --guided command, grab the base url and replace it in the EnvironmentVariables.json file.
+
+the final test can be executed using the bellow command:
+
+     newman run .\TrendTest.postman_collection.json -e .\EnvironmentVariables.json 
 
                                
   
