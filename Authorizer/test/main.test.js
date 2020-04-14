@@ -1,7 +1,7 @@
 const { AuthorizerService } = require("../main");
 const Authorizer = require("../authorizer");
 
-const fakeEvent = {
+const Event = {
   type: "TOKEN",
   methodArn:
     "arn:aws:execute-api:ap-southeast-2:882849831643:8vwwompmje/ESTestInvoke-stage/GET/",
@@ -9,7 +9,7 @@ const fakeEvent = {
 };
 describe("AuthorizerService", () => {
   test("integration", async () => {
-    const result = await AuthorizerService(fakeEvent, Authorizer);
+    const result = await AuthorizerService(Event, Authorizer);
 
     expect(result.policyDocument).toBeDefined();
     expect(result.context).toBeDefined();

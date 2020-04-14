@@ -11,7 +11,7 @@
   },
   "dependencies": {},
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "aws-sdk-mock": "^5.1.0",

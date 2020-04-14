@@ -1,8 +1,4 @@
 exports.SecurityGroupService = async (ConnectionService) => {
-  console.log(
-    "ConnectionServiceConnectionServiceConnectionServiceConnectionService",
-    ConnectionService
-  );
   try {
     const { SecurityGroups } = await ConnectionService();
     SecurityGroupList =
