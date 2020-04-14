@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "49a73709-80bd-4384-bc3b-7e0e628b2112",
+		"name": "TrendTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetSecurityGroups",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ecda64af-3440-482f-b70d-d017cf5a5bc7",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"default\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorization_value}}",
+						"type": "text"
+					}
+				],
+				"url": "{{base_url}}{{Environment}}/GetSecurityGroups"
+			},
+			"response": [
+						]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
